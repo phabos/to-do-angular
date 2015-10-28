@@ -15,15 +15,26 @@
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body>
-		<div ng-app>
+		<div ng-app="ToDo">
 		  <div>
 		    <header>
 		        <h1>Liste des courses</h1>
-		        <input type="text" size="30" placeholder="What do i need to buy?" />
 		    </header>
 
-		    <section id="main" style="display: block;" ng-controller="myCtrl">
-		        Display
+		    <section id="main" style="display: block;" ng-controller="listCtrl">
+		    	<form name="frm">
+		    		<input type="text" size="30" ng-model="title" placeholder="What do i need to buy?" />
+		    		<button type="submit" ng-click="addItem()">Ajouter</button>
+		    	</form>
+		    	<ul>
+		    		<li ng-repeat="item in items">
+		    			<input type="checkbox" ng-model="item.done" ng-change="setItemDone( item )"> {{ item.title }} {{ item.done }} <span ng-click="clearItem( item )">[x]</span>
+		    		</li>
+		    	</ul>
+		    	{{items.length}} restant(s) <button ng-click="clearAllItems()">Effacer tout</button>
+		    	<filters>
+		    		Tout Fait Restant
+		    	</filters>
 		    </section>
 
 		    <footer>
@@ -34,6 +45,31 @@
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
 		<script>
+			var app = angular.module("ToDo", []);
+
+			app.controller("listCtrl", ['$scope', function($scope) {
+				$scope.items = [];
+
+				$scope.addItem = function() {
+					if($scope.title)
+						$scope.items.push( { 'title': $scope.title, 'done': false} );
+					$scope.title = '';
+				}
+
+				$scope.clearAllItems = function() {
+					$scope.items = [];
+				}
+
+				$scope.clearItem = function( item ) {
+					var index = $scope.items.indexOf(item);
+  					$scope.items.splice(index, 1);
+				}
+
+				$scope.setItemDone = function( item ){
+					// do local storage !!
+				}
+
+			}]);
 
 		</script>
 	</body>
