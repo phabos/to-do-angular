@@ -27,7 +27,7 @@
 		    		<button type="submit" ng-click="addItem()">Ajouter</button>
 		    	</form>
 		    	<ul ng-show="items.length">
-		    		<li ng-repeat="item in items">
+		    		<li ng-repeat="item in items" ng-class="{strike: item.done==true}">
 		    			<input type="checkbox" ng-model="item.done"> {{ item.title }} {{ item.done }} <span ng-click="clearItem( item )">[x]</span>
 		    		</li>
 		    	</ul>
