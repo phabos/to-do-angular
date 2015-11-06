@@ -27,13 +27,15 @@
 		    		<button type="submit" ng-click="addItem()">Ajouter</button>
 		    	</form>
 		    	<ul ng-show="items.length">
-		    		<li ng-repeat="item in items" ng-class="{strike: item.done==true}">
+		    		<li ng-repeat="item in items | orderBy:'done' | filter:searchDone" ng-class="{strike: item.done==true}">
 		    			<input type="checkbox" ng-model="item.done"> {{ item.title }} {{ item.done }} <span ng-click="clearItem( item )">[x]</span>
 		    		</li>
 		    	</ul>
 		    	{{items.length}} restant(s) <button ng-click="clearAllItems()">Effacer tout</button>
 		    	<filters>
-		    		Tout Fait Restant
+		    		<a ng-click="searchDone.done = 'true'">Fait</a> |
+		    		<a ng-click="searchDone.done = 'false'">Restant</a> |
+		    		<a ng-click="searchDone.done = ''">Tout</a>
 		    	</filters>
 		    </section>
 
