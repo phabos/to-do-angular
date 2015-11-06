@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
@@ -18,35 +19,36 @@
 		<div class="container" ng-app="ToDo">
 		  <div class="main">
 		    <header>
-		        <h1>Liste des courses</h1>
+		        <h1><i class="fa fa-rocket"></i>&nbsp;&nbsp;&nbsp;Liste des courses</h1>
 		    </header>
 
 		    <section id="main" style="display: block;" ng-controller="listCtrl">
-		    	<form name="frm">
+		    	<form class="addform" name="frm">
 		    		<input type="text" ng-model="title" placeholder="What do i need to buy?" />
-		    		<button type="submit" ng-click="addItem()">Ajouter</button>
+		    		<button type="submit" ng-click="addItem()">AJOUTER</button>
 		    	</form>
-		    	<ul ng-show="items.length">
+		    	<ul class="item-list" ng-show="items.length">
 		    		<li ng-repeat="item in items | orderBy:'done' | filter:searchDone" ng-class="{strike: item.done==true}">
-		    			<input type="checkbox" ng-model="item.done"> {{ item.title }} {{ item.done }} <span ng-click="clearItem( item )">[x]</span>
+		    			<span class="item-done" ng-class="{finished: item.done==true}" ng-click="changeItemStatus( item )"><i class="fa fa-check"></i></span>
+		    			<span class="item-description">{{ item.title }}</span>
+		    			<span class="item-delete" ng-click="clearItem( item )"><i class="fa fa-trash"></i></span>
 		    		</li>
 		    	</ul>
-		    	{{items.length}} restant(s) <button ng-click="clearAllItems()">Effacer tout</button>
-		    	<filters>
-		    		<a ng-click="searchDone.done = 'true'">Fait</a> |
-		    		<a ng-click="searchDone.done = 'false'">Restant</a> |
+		    	<div class="filters">
+		    		<span><i class="fa fa-filter"></i></span>
+		    		<a ng-click="searchDone.done = 'true'">Fait</a>
+		    		<a ng-click="searchDone.done = 'false'">Restant</a>
 		    		<a ng-click="searchDone.done = ''">Tout</a>
-		    	</filters>
+		    	</div>
+		    	<div class="extra">
+		    		<span class="item-total">Total : {{items.length}}</span>
+		   			<button ng-click="clearAllItems()">Effacer tout</button>
+		   		</div>
 		    </section>
-
-		    <footer>
-		        Footer
-		    </footer>
-
 		  </div>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
-		<script src="https://rawgit.com/grevory/angular-local-storage/master/dist/angular-local-storage.min.js"></script>
+		<script src="js/angular.js"></script>
+		<script src="js/local-storage.js"></script>
 		<script>
 			var app = angular.module("ToDo", ['LocalStorageModule']);
 
@@ -78,6 +80,13 @@
 				$scope.clearItem = function( item ) {
 					var index = $scope.items.indexOf(item);
   					$scope.items.splice(index, 1);
+				}
+
+				$scope.changeItemStatus = function ( item ) {
+					if( item.done == true )
+						item.done = false;
+					else
+						item.done = true;
 				}
 
 			});
