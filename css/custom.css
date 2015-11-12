@@ -1,5 +1,15 @@
-@import url(https://fonts.googleapis.com/css?family=Amatic+SC:400,700);
-@import url(https://fonts.googleapis.com/css?family=Questrial);
+/*@import url("https://fonts.googleapis.com/css?family=Amatic+SC:400,700");
+@import url("https://fonts.googleapis.com/css?family=Questrial");*/
+
+@font-face {
+    font-family: 'Amatic SC';
+    src: url("../fonts/AmaticSC-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Questrial';
+    src: url("../fonts/Questrial-Regular.otf");
+}
 
 body {
 	font-family: 'Questrial', sans-serif;
