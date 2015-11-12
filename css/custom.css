@@ -83,14 +83,14 @@ input[type=text] {
 @-moz-keyframes myfirst /* Firefox */
     {
     	0%   {border-bottom:3px solid #56BD56;}
-    	50%  {border-bottom:3px solid #44c7f4;}
+    	50%  {border-bottom:3px solid #F4B488;}
     	100%   {border-bottom:3px solid #56BD56;}
     }
 
 @-webkit-keyframes myfirst /* Safari and Chrome */
     {
     	0%   {border-bottom:3px solid #56BD56;}
-    	50%  {border-bottom:3px solid #44c7f4;}
+    	50%  {border-bottom:3px solid #F4B488;}
     	100%   {border-bottom:3px solid #56BD56;}
    	}
 
