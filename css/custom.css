@@ -48,7 +48,7 @@ h1 {
 }
 
 header {
-	background-color: #232323;
+	background-color: #56BD56;
 	color: #fff;
 	-webkit-border-radius: 10px 10px 0 0;
 	-moz-border-radius: 10px 10px 0 0;
@@ -70,7 +70,7 @@ input[type=text] {
 	border-left:none;
 	border-right:none;
 	background-color: #fff;
-    border-bottom:3px solid #232323;
+    border-bottom:3px solid #56BD56;
 	padding:4% 2%;
 	text-align: center;
 	/*-webkit-transition: all 0.30s ease-in-out;
@@ -82,16 +82,16 @@ input[type=text] {
 
 @-moz-keyframes myfirst /* Firefox */
     {
-    	0%   {border-bottom:3px solid #232323;}
+    	0%   {border-bottom:3px solid #56BD56;}
     	50%  {border-bottom:3px solid #44c7f4;}
-    	100%   {border-bottom:3px solid #232323;}
+    	100%   {border-bottom:3px solid #56BD56;}
     }
 
 @-webkit-keyframes myfirst /* Safari and Chrome */
     {
-    	0%   {border-bottom:3px solid #232323;}
+    	0%   {border-bottom:3px solid #56BD56;}
     	50%  {border-bottom:3px solid #44c7f4;}
-    	100%   {border-bottom:3px solid #232323;}
+    	100%   {border-bottom:3px solid #56BD56;}
    	}
 
 input[type=text]:focus {
@@ -103,7 +103,7 @@ input[type=text]:focus {
 }
 
 .addform button {
-	background: #44c7f4;
+	background: #F4B488;
 	margin: 0;
 	padding: 10px 0;
 	color: #fff;
@@ -122,7 +122,7 @@ ul.item-list {
 }
 
 ul.item-list li {
-	border-bottom: 1px solid #232323;
+	border-bottom: 1px solid #56BD56;
 	padding: 10px 5px;
 }
 
@@ -183,7 +183,7 @@ ul.item-list i {
 }
 
 .filters {
-	background-color: #232323;
+	background-color: #56BD56;
 	color: #fff;
 	width: 100%;
 	padding: 10px 0;
@@ -199,13 +199,13 @@ ul.item-list i {
 	display: inline-block;
 	width: 10%;
 	text-align: center;
-	background-color: #44c7f4;
+	background-color: #F4B488;
 	border-radius: 2px;
 	margin-left: 5px;
 }
 
 .extra {
-	background-color: #232323;
+	background-color: #56BD56;
 	color: #fff;
 	width: 100%;
 	padding: 10px 0;
@@ -220,7 +220,7 @@ ul.item-list i {
 }
 
 .extra button {
-	background-color: #44c7f4;
+	background-color: #F4B488;
 	border-radius: 2px;
 	border:none;
 }
